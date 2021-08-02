@@ -20,8 +20,20 @@ public class ProductsPage {
     SelenideElement shoppingCartContainer = $("#shopping_cart_container");
     SelenideElement menu = $("#react-burger-menu-btn");
 
+    public void addOneItemToCart() {
+        addSauceLabsBackpack.click();
+    }
 
+    public void addMultipleItemsToCart () {
+        addSauceLabsBackpack.click();
+        addSauceLabsBikeLight.click();
+        addSauceLabsBoltTShirt.click();
+        addSauceLabsOnesie.click();
+    }
 
+    public void clickContainer () {
+        shoppingCartContainer.click();
+    }
 
 
 }

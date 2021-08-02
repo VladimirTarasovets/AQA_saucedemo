@@ -2,7 +2,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class ChecoutCompletePage {
+public class CompletePage {
 
     SelenideElement backHome = $("#back-to-products");
 
