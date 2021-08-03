@@ -3,42 +3,31 @@ import com.codeborne.selenide.Configuration;
 
 
 import com.codeborne.selenide.ElementsCollection;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 
 import java.io.IOException;
 
 
-public class SaucedemoTests {
+public class SaucedemoTests extends BeAfAll{
 
     LoginPage loginPage = new LoginPage();
     ProductsPage productsPage = new ProductsPage();
     YourCartPage yourCartPage = new YourCartPage();
     YourInformationPage yourInformationPage = new YourInformationPage();
     OverviewPage overviewPage = new OverviewPage();
-
-    @BeforeEach
-    public void setUp() {
-    Configuration.startMaximized = true;
-    }
-
-    @AfterEach
-    public void tearDown() {
-        closeWebDriver();
-    }
+    CompletePage completePage = new CompletePage();
 
     @Test
+    @DisplayName("Тест авторизация на сайте")
     public void loginTest() throws IOException {
         loginPage.openLoginPage();
         loginPage.logIn();
-//        Assertions.assertEquals("https://www.saucedemo.com/inventory.html",
-//                "Открыта не правильная страница или адресс страницы неверный");
-
+        Assertions.assertTrue(productsPage.getPageTitle().isDisplayed(), "Открыта правильная страница");
     }
 
     @Test
+    @DisplayName("Тест покупки")
     public void purchaseTest() throws IOException {
         loginPage.openLoginPage();
         loginPage.logIn();
@@ -48,12 +37,11 @@ public class SaucedemoTests {
         yourInformationPage.yourInformationFilling();
         yourInformationPage.continueClick();
         overviewPage.finish();
-
-        //        Assertions.assertEquals("https://www.saucedemo.com/inventory.html",
-//                "Открыта не правильная страница или адресс страницы неверный");
+        Assertions.assertTrue(completePage.getPageTitleComplete().isDisplayed(), "Открыта правильная страница");
     }
 
     @Test
+    @DisplayName("Тест отмены покупки")
     public void cancellationOfPurchaseTest() throws IOException {
         loginPage.openLoginPage();
         loginPage.logIn();
@@ -62,14 +50,12 @@ public class SaucedemoTests {
         yourCartPage.checkout();
         yourInformationPage.yourInformationFilling();
         yourInformationPage.continueClick();
-        overviewPage.finish();
         yourInformationPage.cancelClick();
-
-        //        Assertions.assertEquals("https://www.saucedemo.com/inventory.html",
-//                "Открыта не правильная страница или адресс страницы неверный");
+        Assertions.assertTrue(productsPage.getPageTitle().isDisplayed(), "Открыта правильная страница");
     }
 
     @Test
+    @DisplayName("Тест удаления всех товаров из корзины")
     public void removingItemsFromTheCartTest() throws IOException {
         loginPage.openLoginPage();
         loginPage.logIn();
@@ -82,6 +68,7 @@ public class SaucedemoTests {
     }
 
     @Test
+    @DisplayName("Тест проверка корректности подсчета общей суммы набранных товаров")
     public void countSumsGoodsTest() throws IOException {
         loginPage.openLoginPage();
         loginPage.logIn();

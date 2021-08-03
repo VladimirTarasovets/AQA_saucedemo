@@ -19,6 +19,11 @@ public class ProductsPage {
     SelenideElement removeTestAllTheThingsTShirtRed = $("#remove-test.allthethings()-t-shirt-(red)");
     SelenideElement shoppingCartContainer = $("#shopping_cart_container");
     SelenideElement menu = $("#react-burger-menu-btn");
+    SelenideElement pageTitle = $(By.xpath("//span[contains(text(),'Products')]"));
+
+    public SelenideElement getPageTitle() {
+        return pageTitle;
+    }
 
     public void addOneItemToCart() {
         addSauceLabsBackpack.click();
