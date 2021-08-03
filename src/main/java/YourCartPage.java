@@ -3,12 +3,13 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class YourCartPage {
 
     SelenideElement checkout = $("#checkout");
     SelenideElement continueShopping = $("#continue-shopping");
-    SelenideElement cartList = $("#cart_list");
+    SelenideElement cartList = $(".item_pricebar");
     SelenideElement remove = $(By.xpath("//button[text()='Remove']"));
 //  div[class='cart_contents_container']
 
@@ -17,9 +18,10 @@ public class YourCartPage {
     }
 
     public void numberOfItemsInTheCart () {
-        ElementsCollection productCollection = cartList.$$("cart_item");
+        ElementsCollection productCollection = cartList.$$("button");
         int productSizeBefore = productCollection.size();
-        productCollection.first().$(By.xpath("//button[text()='Remove']")).click();
+        // добавить условие для удаления всех товаров
+        productCollection.first().click();
     }
 
 
