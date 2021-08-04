@@ -61,10 +61,8 @@ public class SaucedemoTests extends BeAfAll{
         loginPage.logIn();
         productsPage.addMultipleItemsToCart();
         productsPage.clickContainer();
-        yourCartPage.numberOfItemsInTheCart(); // не доделан
-
-        //        Assertions.assertEquals("https://www.saucedemo.com/inventory.html",
-//                "Открыта не правильная страница или адресс страницы неверный");
+        yourCartPage.removingAllItemsFromTheCart();
+        Assertions.assertEquals(yourCartPage.getCartItems(), 0, "Товары не удалены из корзины");
     }
 
     @Test
@@ -77,8 +75,11 @@ public class SaucedemoTests extends BeAfAll{
         yourCartPage.checkout();
         yourInformationPage.yourInformationFilling();
         yourInformationPage.continueClick();
+        Assertions.assertEquals(overviewPage.getItemTotal(), overviewPage.getInventoryItemPriceSum(),
+                "Общая сумма товара подсчитана не коректно");
 
+        System.out.println(overviewPage.getItemTotal());
+        System.out.println(overviewPage.getInventoryItemPriceSum());
     }
-
 
 }

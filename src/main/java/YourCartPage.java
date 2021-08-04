@@ -2,26 +2,27 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
+import static com.codeborne.selenide.Selenide.*;
 
 public class YourCartPage {
 
     SelenideElement checkout = $("#checkout");
     SelenideElement continueShopping = $("#continue-shopping");
-    SelenideElement cartList = $(".item_pricebar");
     SelenideElement remove = $(By.xpath("//button[text()='Remove']"));
+    ElementsCollection cartItems = $$(By.xpath("//div[@class='cart_item']"));
 
+    public int getCartItems() {
+        return cartItems.size();
+    }
 
     public void checkout() {
         checkout.click();
     }
 
-    public void numberOfItemsInTheCart () {
-        ElementsCollection productCollection = cartList.$$("button");
-        int productSizeBefore = productCollection.size();
-        // добавить условие для удаления всех товаров
-        productCollection.first().click();
+    public void removingAllItemsFromTheCart (){
+        for (int beforeCartItems = getCartItems(); beforeCartItems > 0; beforeCartItems--) {
+            remove.click();
+        }
     }
 
 
