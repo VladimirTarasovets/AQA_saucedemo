@@ -11,7 +11,7 @@ public class YourCartPage {
     SelenideElement continueShopping = $("#continue-shopping");
     SelenideElement cartList = $(".item_pricebar");
     SelenideElement remove = $(By.xpath("//button[text()='Remove']"));
-//  div[class='cart_contents_container']
+
 
     public void checkout() {
         checkout.click();
@@ -23,8 +23,6 @@ public class YourCartPage {
         // добавить условие для удаления всех товаров
         productCollection.first().click();
     }
-
-
 
 
 }
