@@ -1,6 +1,6 @@
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
+import io.qameta.allure.Step;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,6 +24,7 @@ public class OverviewPage {
         return dPrice;
     }
 
+    @Step("Проверка корректности стоимости товаров в корзине")
     public double getInventoryItemPriceSum() {
         List<Double> prices = inventoryItemPrice.stream()
                 .map(m -> m.getText().replace("$", ""))
