@@ -23,7 +23,7 @@ public class YourInformationPage {
         continueClick.click();
     }
 
-    @Step("Назад")
+    @Step("Отмена покупки")
     public void cancelClick(){
         cancelClick.click();
     }

@@ -12,6 +12,6 @@ import org.junit.runner.RunWith;
 //        tags = "@parameterizedTest",
 //        dryRun = true,
         snippets = CucumberOptions.SnippetType.CAMELCASE)
-public class Runner {
+public class RunnerTest {
 
 }

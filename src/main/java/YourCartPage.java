@@ -16,6 +16,7 @@ public class YourCartPage {
         return cartItems.size();
     }
 
+    @Step("Далее")
     public void checkout() {
         checkout.click();
     }
