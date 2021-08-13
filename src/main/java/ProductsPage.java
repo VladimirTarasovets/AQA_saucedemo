@@ -1,4 +1,5 @@
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -25,10 +26,12 @@ public class ProductsPage {
         return pageTitle;
     }
 
+    @Step("Добавление одного товара в корзину")
     public void addOneItemToCart() {
         addSauceLabsBackpack.click();
     }
 
+    @Step("Добавление нескольких товаров в корзину")
     public void addMultipleItemsToCart () {
         addSauceLabsBackpack.click();
         addSauceLabsBikeLight.click();
@@ -36,6 +39,7 @@ public class ProductsPage {
         addSauceLabsOnesie.click();
     }
 
+    @Step("Переход в корзину")
     public void clickContainer () {
         shoppingCartContainer.click();
     }

@@ -1,4 +1,5 @@
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,6 +14,7 @@ public class LoginPage {
     SelenideElement loginPass = $("#password");
     SelenideElement loginButton = $("#login-button");
 
+    @Step("Авторизация на сайте")
     void logIn() throws IOException {
         Properties props = new Properties();
         props.load(new FileInputStream("src/main/resources/user.properties"));
@@ -21,6 +23,7 @@ public class LoginPage {
         loginButton.click();
     }
 
+    @Step("Открытие страницы авторизации")
     public void openLoginPage(){
         open("https://www.saucedemo.com/");
     }

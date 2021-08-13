@@ -1,10 +1,7 @@
-import static com.codeborne.selenide.Selenide.*;
-import com.codeborne.selenide.Configuration;
-
-
-import com.codeborne.selenide.ElementsCollection;
-import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -18,6 +15,13 @@ public class SaucedemoTests extends BeAfAll{
     OverviewPage overviewPage = new OverviewPage();
     CompletePage completePage = new CompletePage();
 
+    @Flaky
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Логин тест")
+    @Feature("Логирование")
+    @Issue("SD001")
+    @Link("https://github.com/VladimirTarasovets/AQA_saucedemo")
+    @Owner("Vladimir Tarasovets")
     @Test
     @DisplayName("Тест авторизация на сайте")
     public void loginTest() throws IOException {
@@ -26,6 +30,11 @@ public class SaucedemoTests extends BeAfAll{
         Assertions.assertTrue(productsPage.getPageTitle().isDisplayed(), "Открыта правильная страница");
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Тест покупки")
+    @Feature("Покупка")
+    @Issue("SD002")
+    @Link("https://github.com/VladimirTarasovets/AQA_saucedemo")
     @Test
     @DisplayName("Тест покупки")
     public void purchaseTest() throws IOException {
@@ -40,6 +49,11 @@ public class SaucedemoTests extends BeAfAll{
         Assertions.assertTrue(completePage.getPageTitleComplete().isDisplayed(), "Открыта правильная страница");
     }
 
+    @Severity(SeverityLevel.MINOR)
+    @Description("Тест отмены покупки")
+    @Feature("Отмена покупки")
+    @Issue("SD003")
+    @Link("https://github.com/VladimirTarasovets/AQA_saucedemo")
     @Test
     @DisplayName("Тест отмены покупки")
     public void cancellationOfPurchaseTest() throws IOException {
@@ -54,6 +68,11 @@ public class SaucedemoTests extends BeAfAll{
         Assertions.assertTrue(productsPage.getPageTitle().isDisplayed(), "Открыта правильная страница");
     }
 
+    @Severity(SeverityLevel.TRIVIAL)
+    @Description("Тест удаления всех товаров из корзины")
+    @Feature("Удаление товаров")
+    @Issue("SD004")
+    @Link("https://github.com/VladimirTarasovets/AQA_saucedemo")
     @Test
     @DisplayName("Тест удаления всех товаров из корзины")
     public void removingItemsFromTheCartTest() throws IOException {
@@ -65,6 +84,11 @@ public class SaucedemoTests extends BeAfAll{
         Assertions.assertEquals(yourCartPage.getCartItems(), 0, "Товары не удалены из корзины");
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Тест проверка корректности подсчета общей суммы набранных товаров")
+    @Feature("Считаем деньги")
+    @Issue("SD005")
+    @Link("https://github.com/VladimirTarasovets/AQA_saucedemo")
     @Test
     @DisplayName("Тест проверка корректности подсчета общей суммы набранных товаров")
     public void countSumsGoodsTest() throws IOException {
