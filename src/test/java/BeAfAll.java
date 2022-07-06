@@ -8,7 +8,7 @@ public class BeAfAll {
 
     @BeforeEach
     public void setUp() {
-        Configuration.startMaximized = true;
+        Configuration.browserSize = "1920x1080";
     }
 
     @AfterEach

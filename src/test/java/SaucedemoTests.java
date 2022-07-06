@@ -15,15 +15,9 @@ public class SaucedemoTests extends BeAfAll{
     OverviewPage overviewPage = new OverviewPage();
     CompletePage completePage = new CompletePage();
 
-    @Flaky
     @Severity(SeverityLevel.BLOCKER)
     @Description("Логин тест")
-    @Feature("Логирование")
-    @Issue("SD001")
-    @Link("https://github.com/VladimirTarasovets/AQA_saucedemo")
-    @Owner("Vladimir Tarasovets")
     @Test
-    @DisplayName("Тест авторизация на сайте")
     public void loginTest() throws IOException {
         loginPage.openLoginPage();
         loginPage.logIn();
@@ -32,11 +26,7 @@ public class SaucedemoTests extends BeAfAll{
 
     @Severity(SeverityLevel.CRITICAL)
     @Description("Тест покупки")
-    @Feature("Покупка")
-    @Issue("SD002")
-    @Link("https://github.com/VladimirTarasovets/AQA_saucedemo")
     @Test
-    @DisplayName("Тест покупки")
     public void purchaseTest() throws IOException {
         loginPage.openLoginPage();
         loginPage.logIn();
@@ -51,11 +41,7 @@ public class SaucedemoTests extends BeAfAll{
 
     @Severity(SeverityLevel.MINOR)
     @Description("Тест отмены покупки")
-    @Feature("Отмена покупки")
-    @Issue("SD003")
-    @Link("https://github.com/VladimirTarasovets/AQA_saucedemo")
     @Test
-    @DisplayName("Тест отмены покупки")
     public void cancellationOfPurchaseTest() throws IOException {
         loginPage.openLoginPage();
         loginPage.logIn();
@@ -70,11 +56,7 @@ public class SaucedemoTests extends BeAfAll{
 
     @Severity(SeverityLevel.TRIVIAL)
     @Description("Тест удаления всех товаров из корзины")
-    @Feature("Удаление товаров")
-    @Issue("SD004")
-    @Link("https://github.com/VladimirTarasovets/AQA_saucedemo")
     @Test
-    @DisplayName("Тест удаления всех товаров из корзины")
     public void removingItemsFromTheCartTest() throws IOException {
         loginPage.openLoginPage();
         loginPage.logIn();
@@ -86,11 +68,7 @@ public class SaucedemoTests extends BeAfAll{
 
     @Severity(SeverityLevel.CRITICAL)
     @Description("Тест проверка корректности подсчета общей суммы набранных товаров")
-    @Feature("Считаем деньги")
-    @Issue("SD005")
-    @Link("https://github.com/VladimirTarasovets/AQA_saucedemo")
     @Test
-    @DisplayName("Тест проверка корректности подсчета общей суммы набранных товаров")
     public void countSumsGoodsTest() throws IOException {
         loginPage.openLoginPage();
         loginPage.logIn();

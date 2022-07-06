@@ -9,7 +9,7 @@ public class CompletePage {
     SelenideElement backHome = $("#back-to-products");
     SelenideElement pageTitleComplete = $(By.xpath("//span[contains(text(),'Checkout: Complete!')]"));
 
-    @Step("Страница успешной опкупки")
+    @Step("Страница успешной покупки")
     public SelenideElement getPageTitleComplete() {
         return pageTitleComplete;
     }

@@ -14,7 +14,7 @@ public class Steps {
 
     @Допустим("^открыта страница \"([^\"]*)\"$")
     public void openPage(String pageURL) {
-        Configuration.startMaximized = true;
+        Configuration.browserSize = "1920x1080";
         open(pageURL);
     }
     @Допустим("^в поле ввода логина введено значение \"([^\"]*)\"$")
